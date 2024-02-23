@@ -1,6 +1,5 @@
 var maxArea = function (h) {
-  let L = 0,
-    i = 0,
+  let L = 0,    i = 0,
     j = h.length - 1;
   while (i < j) {
     L = Math.max(Math.min(h[i], h[j]) * (j - i), L);
