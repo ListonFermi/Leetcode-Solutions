@@ -2,10 +2,18 @@
  * @param {string} s
  * @return {number}
  */
-var scoreOfString = function(s) {
-    let sum=0
+// var scoreOfString = function(s) {
+//     let sum=0
+//     for(let i=0;i<s.length-1;i++){
+//         sum+= Math.abs(s.charCodeAt(i)-s.charCodeAt(i+1))
+//     }
+//     return sum
+// };
+
+var scoreOfString = function(s){
+    let ans=0
     for(let i=0;i<s.length-1;i++){
-        sum+= Math.abs(s.charCodeAt(i)-s.charCodeAt(i+1))
+        ans+= Math.abs(s.charCodeAt(i) - s.charCodeAt(i+1))
     }
-    return sum
-};
+    return ans
+}
