@@ -15,11 +15,5 @@ var longestPalindrome = function(s) {
             ans+=f[freq]-1
         }
     }
-    console.log(ans)
-    for(let freq in f){
-        if(f[freq]%2!=0){
-            return ans+1
-        }
-    }
-    return ans
+    return s.length > ans? ans+1: ans
 };
