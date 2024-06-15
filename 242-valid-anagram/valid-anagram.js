@@ -3,9 +3,35 @@
  * @param {string} t
  * @return {boolean}
  */
-// var isAnagram = function(s, t) {
-//     return s.split('').sort().join('') === t.split('').sort().join('')
-// }
+
+var isAnagram = function (s, t) {
+
+    if(s.length != t.length) return false
+
+    const sF = new Array(26).fill(0)
+    const tF = new Array(26).fill(0)
+    let index
+
+    for(let i=0;i<s.length;i++){
+        index = s[i].charCodeAt(0) - 'a'.charCodeAt(0)
+        sF[index]++
+    }
+
+    for(let i=0;i<t.length;i++){
+        index = t[i].charCodeAt(0) - 'a'.charCodeAt(0)
+        tF[index]++
+    }
+
+    for(let i=0;i<26;i++){
+        if(sF[i]!=tF[i]) return false
+    }
+    return true
+}
+
+
+
+/*
+2024-May-11
 
 var isAnagram = function (s, t) {
 
@@ -33,3 +59,16 @@ var isAnagram = function (s, t) {
     }
     return true
 }
+
+*/
+
+
+
+/*
+2024-Mar-19
+
+var isAnagram = function(s, t) {
+    return s.split('').sort().join('') === t.split('').sort().join('')
+}
+
+*/
