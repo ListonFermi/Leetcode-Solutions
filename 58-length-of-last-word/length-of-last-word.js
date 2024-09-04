@@ -2,8 +2,20 @@
  * @param {string} s
  * @return {number}
  */
-var lengthOfLastWord = function(s) {
-    const sentenceArray= s.trim().split(' ')
+var lengthOfLastWord = function (s) {
+    const words = []
+    let temp = ''
+    for (let letter of s) {
+        if (letter == ' ' && temp.length) {
+            words.push(temp)
+            temp = ''
+        }
 
-    return sentenceArray[sentenceArray.length-1].length
+        if (letter != ' ') {
+            temp += letter
+        }
+    }
+    if(temp.length) words.push(temp)
+    console.log({words})
+    return words[words.length-1].length
 };
