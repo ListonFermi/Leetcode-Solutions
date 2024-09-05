@@ -2,8 +2,9 @@
  * @param {string} s
  * @return {number}
  */
-var countSegments = function(s) {
-    let arr= s.split(' ')
-    arr = arr.map(v=>v.trim())
-    return arr.filter(v=>v.length>0).length
+var countSegments = function (s) {
+    s = s.split(' ')
+    console.log({s})
+    return s.filter(v=>v.length>0).length
+
 };
