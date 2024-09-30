@@ -2,16 +2,19 @@
  * @param {string} s
  * @return {number}
  */
-var firstUniqChar = function(s) {
-    const f={}
-    for(let str of s){
-        if(f[str]) f[str]++
-        else f[str]=1
+var firstUniqChar = function (s) {
+    const freq = {}
+    for (let char of s) {
+        if (freq[char]) {
+            freq[char]++
+        } else {
+            freq[char] = 1
+        }
     }
-
-    for(let i in s){
-        if(f[s[i]]===1) return i 
+    for (let i=0;i<s.length;i++) {
+        if (freq[s[i]] === 1) {
+            return i
+        }
     }
     return -1
-
 };
