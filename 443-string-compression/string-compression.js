@@ -3,7 +3,6 @@
  * @return {number}
  */
 var compress = function (chars) {
-
     let curr = chars[0]
     let currCount = 0
     const ans = []
@@ -12,42 +11,17 @@ var compress = function (chars) {
 
         if (i === chars.length - 1) {
             if (curr === chars[i]) currCount++
-
             ans.push(curr)
-            if (currCount > 1 && currCount < 10) {
-                ans.push(currCount.toString())
-            } else if(currCount >=10) {
-                let numStr = ''
-                while (currCount) {
-                    numStr += currCount % 10
-                    currCount = Math.floor(currCount / 10)
-                }
-                for (let i = numStr.length - 1; i >= 0; i--) {
-                    ans.push(numStr[i])
-                }
-            }
-
+            pushNumber(currCount, ans)
             if (curr != chars[i]) ans.push(chars[i])
-
-            continue
+            break;
         }
 
         if (curr === chars[i]) {
             currCount++
         } else {
             ans.push(curr)
-            if (currCount > 1 && currCount < 10) {
-                ans.push(currCount.toString())
-            } else if(currCount >=10) {
-                let numStr = ''
-                while (currCount) {
-                    numStr += currCount % 10
-                    currCount = Math.floor(currCount / 10)
-                }
-                for (let i = numStr.length - 1; i >= 0; i--) {
-                    ans.push(numStr[i])
-                }
-            }
+            pushNumber(currCount, ans)
             curr = chars[i]
             currCount = 1
         }
@@ -59,3 +33,18 @@ var compress = function (chars) {
     chars.length = ans.length
     return ans.length
 };
+
+function pushNumber(number, array) {
+    if (number > 1 && number < 10) {
+        array.push(number.toString())
+    } else if (number >= 10) {
+        let numStr = ''
+        while (number) {
+            numStr += number % 10
+            number = Math.floor(number / 10)
+        }
+        for (let i = numStr.length - 1; i >= 0; i--) {
+            array.push(numStr[i])
+        }
+    }
+}
