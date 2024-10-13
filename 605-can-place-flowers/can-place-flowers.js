@@ -6,7 +6,6 @@
 var canPlaceFlowers = function (flowerbed, n) {
     let possiblePosition = 0
     let prev, next
-    const potentialPos = {}
 
     for (let i = 0; i < flowerbed.length; i++) {
         prev = flowerbed[i - 1]
@@ -16,9 +15,9 @@ var canPlaceFlowers = function (flowerbed, n) {
 
         if (i === flowerbed.length - 1) next = 0
 
-        if (prev === 0 && next === 0 && flowerbed[i] === 0 && !potentialPos[i-1]) {
+        if (prev === 0 && next === 0 && flowerbed[i] === 0) {
             possiblePosition++
-            potentialPos[i] = true
+            i++
         }
     }
     return n <= possiblePosition
