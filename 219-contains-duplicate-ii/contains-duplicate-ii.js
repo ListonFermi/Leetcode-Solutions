@@ -11,7 +11,6 @@ var containsNearbyDuplicate = function (nums, k) {
         if (f[curr]) {
             lastInd = f[curr][f[curr].length - 1]
             if (i - lastInd <= k) {
-                console.log({ f, lastInd, i, abs: Math.abs(lastInd, i), cond: Math.abs(lastInd, i) <= k })
                 return true
             } else {
                 f[curr].push(i)
