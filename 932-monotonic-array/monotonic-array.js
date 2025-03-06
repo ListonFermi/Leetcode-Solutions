@@ -2,18 +2,18 @@
  * @param {number[]} nums
  * @return {boolean}
  */
-var isMonotonic = function (nums) {
-    if(nums.length<=2) return true
-    //check if it's ascending
-    for (let i = 0; i < nums.length - 1; i++) {
-        if (nums[i] > nums[i + 1]) break
-        if(i===nums.length-2) return true
-    }
-    //check if it's descending
-    for (let i = 0; i < nums.length - 1; i++) {
-        if (nums[i] < nums[i + 1]) break
-        if(i===nums.length-2) return true
-    }
+var isMonotonic = function(nums) {
+    let isInc
+    for(let i=1;i<nums.length;i++){
 
-    return false
+        if(typeof isInc === 'boolean') break
+
+        if(nums[i]>nums[i-1]) isInc = true
+        else if( nums[i] < nums[i-1]) isInc = false
+    }
+    for(let i=1;i<nums.length;i++){
+        if(isInc && nums[i]< nums[i-1]) return false
+        if(!isInc && nums[i]>nums[i-1]) return false
+    }
+    return true
 };
