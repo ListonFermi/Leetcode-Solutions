@@ -1,0 +1,12 @@
+const minChanges=[]
+
+for(let i=0; i<blocks.length;i++){
+     minChanges.push(k);
+     for(let j=0;j<k;j++){
+          if(minChanges.length-1-j >=0 && blocks[i]==='B'){
+                minChanges[minChanges.length-1-j]-=1
+          }
+     }
+}
+
+return minChanges.reduce((acc,curr)=>curr<acc?curr:acc,Infinity)
